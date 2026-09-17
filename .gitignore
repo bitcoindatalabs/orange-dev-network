@@ -14,6 +14,7 @@ research/
 *.json
 
 # Private Intelligence (DO NOT PUSH)
+PRODUCT_VISION.md
 config/identity_mappings.json
 scripts/analysis/find_unmapped_authors.py
 scripts/analysis/influence_hubs.py
