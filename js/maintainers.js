@@ -1,6 +1,6 @@
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 const DATA_URL = isLocal
-    ? 'output/shared/maintainers/stats_maintainers.json'
+    ? '../orange-dev-data/output/shared/maintainers/stats_maintainers.json'
     : 'https://raw.githubusercontent.com/sorukumar/orange-dev-data/main/output/shared/maintainers/stats_maintainers.json';
 
 // Shared Colors
@@ -30,10 +30,10 @@ async function initMaintainers() {
         
         const registryUrl = DATA_URL.replace('maintainers/stats_maintainers.json', 'contributors/registry_index.json');
         const selfMergesUrl = isLocal
-            ? 'output/network/stats_self_merges.json'
+            ? '../orange-dev-data/output/network/stats_self_merges.json'
             : 'https://raw.githubusercontent.com/sorukumar/orange-dev-data/main/output/network/stats_self_merges.json';
         const sankeyUrl = isLocal
-            ? 'output/network/sankey_maintainers.json'
+            ? '../orange-dev-data/output/network/sankey_maintainers.json'
             : 'https://raw.githubusercontent.com/sorukumar/orange-dev-data/main/output/network/sankey_maintainers.json';
         
         const [res, regRes, smRes, sankeyRes] = await Promise.all([

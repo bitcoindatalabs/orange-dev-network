@@ -10,7 +10,7 @@ import { parquetRead } from 'https://cdn.jsdelivr.net/npm/hyparquet@1.17.1/+esm'
 
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 const DATA_BASE_URL = isLocal
-    ? 'output/shared/contributors/'
+    ? '../orange-dev-data/output/shared/contributors/'
     : 'https://raw.githubusercontent.com/sorukumar/orange-dev-data/main/output/shared/contributors/';
 const REGISTRY_URL = DATA_BASE_URL + 'registry_index.json';         // kept for fallback
 const REGISTRY_METADATA_URL = DATA_BASE_URL + 'registry_metadata.json';

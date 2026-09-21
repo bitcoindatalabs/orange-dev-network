@@ -66,7 +66,7 @@ let activeContributorData = null;
 
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 const CONTRIBUTORS_URL = isLocal
-    ? 'output/tracker/contributors_rich.json'
+    ? '../orange-dev-data/output/tracker/contributors_rich.json'
     : 'https://raw.githubusercontent.com/sorukumar/orange-dev-data/main/output/tracker/contributors_rich.json';
 
 async function loadContributorLandscape() {
