@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 { name: 'Builder Galaxy', url: 'contributors.html' }
             ],
             footerLinks: [
-                { name: 'Methodology & Definitions', url: 'https://tracker.bitcoindatalabs.org/methodology.html' }
+                { name: 'Methodology & Definitions', url: 'https://orange-dev.bitcoindatalabs.org/methodology.html' }
             ],
             feedbackUrl: 'roadmap.html',
             suiteLinks: [
-                { name: 'orange-dev-tracker', url: 'https://tracker.bitcoindatalabs.org', icon: 'fas fa-chart-line' },
+                { name: 'orange-dev-tracker', url: 'https://orange-dev.bitcoindatalabs.org', icon: 'fas fa-chart-line' },
                 { name: 'this-week-in-bitcoin', url: 'https://twib.bitcoindatalabs.org', icon: 'fas fa-newspaper' }
             ]
         });

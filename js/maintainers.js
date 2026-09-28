@@ -1,7 +1,7 @@
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 const DATA_URL = isLocal
     ? '../orange-dev-data/output/shared/maintainers/stats_maintainers.json'
-    : 'https://raw.githubusercontent.com/sorukumar/orange-dev-data/main/output/shared/maintainers/stats_maintainers.json';
+    : 'https://raw.githubusercontent.com/bitcoindatalabs/orange-dev-data/main/output/shared/maintainers/stats_maintainers.json';
 
 // Shared Colors
 const GHIBLI_PALETTE = [
@@ -31,10 +31,10 @@ async function initMaintainers() {
         const registryUrl = DATA_URL.replace('maintainers/stats_maintainers.json', 'contributors/registry_index.json');
         const selfMergesUrl = isLocal
             ? '../orange-dev-data/output/network/stats_self_merges.json'
-            : 'https://raw.githubusercontent.com/sorukumar/orange-dev-data/main/output/network/stats_self_merges.json';
+            : 'https://raw.githubusercontent.com/bitcoindatalabs/orange-dev-data/main/output/network/stats_self_merges.json';
         const sankeyUrl = isLocal
             ? '../orange-dev-data/output/network/sankey_maintainers.json'
-            : 'https://raw.githubusercontent.com/sorukumar/orange-dev-data/main/output/network/sankey_maintainers.json';
+            : 'https://raw.githubusercontent.com/bitcoindatalabs/orange-dev-data/main/output/network/sankey_maintainers.json';
         
         const [res, regRes, smRes, sankeyRes] = await Promise.all([
             fetch(DATA_URL + '?t=' + Date.now()),

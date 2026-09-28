@@ -5,7 +5,7 @@
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 const SHARED_BASE = isLocal
     ? '../orange-dev-data/output/shared/'
-    : 'https://raw.githubusercontent.com/sorukumar/orange-dev-data/main/output/shared/';
+    : 'https://raw.githubusercontent.com/bitcoindatalabs/orange-dev-data/main/output/shared/';
 
 const STATS_URL = SHARED_BASE + 'ecosystem_summary.json';
 const SNAPSHOT_URL = SHARED_BASE + 'ecosystem_home_snapshot.json';
