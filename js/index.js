@@ -293,6 +293,12 @@ async function renderBuildersSpotlight(snapshot) {
 
 
 function formatMonthYear(input) {
+    if (!input) return 'Unknown';
+    const parts = input.split('T')[0].split('-');
+    if (parts.length === 3) {
+        const d = new Date(parts[0], parts[1] - 1, parts[2]);
+        return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
     const d = new Date(input);
     if (!Number.isFinite(d.getTime())) return 'Unknown';
     return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
