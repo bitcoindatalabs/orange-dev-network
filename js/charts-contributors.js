@@ -75,8 +75,9 @@ async function loadContributorLandscape() {
         if (!charts.landscape) return;
 
         if (!galaxyData) {
-            const res = await fetch(CONTRIBUTORS_URL);
-            galaxyData = await res.json();
+            const res = await fetch(CONTRIBUTORS_URL + '?t=' + Date.now());
+            const text = await res.text();
+            galaxyData = JSON.parse(text.replace(/:\s*NaN\b/g, ': null'));
             setupGalaxyToggles();
         }
 

@@ -46,24 +46,38 @@ async function initMaintainers() {
         const data = await res.json();
         
         if (regRes && regRes.ok) {
-            const registryData = await regRes.json();
-            const contributors = registryData.contributors || [];
-            window.uuidToGithub = {};
-            contributors.forEach(c => {
-                if (c.display_name) window.nameToUuid[c.display_name] = c.uuid;
-                if (c.github_login) window.uuidToGithub[c.uuid] = c.github_login;
-            });
+            try {
+                const registryData = await regRes.json();
+                const contributors = registryData.contributors || [];
+                window.uuidToGithub = {};
+                contributors.forEach(c => {
+                    if (c.display_name) window.nameToUuid[c.display_name] = c.uuid;
+                    if (c.github_login) window.uuidToGithub[c.uuid] = c.github_login;
+                });
+            } catch (err) {
+                console.warn("Failed to parse registry data:", err);
+            }
         }
         
         if (smRes && smRes.ok) {
-            const smData = await smRes.json();
-            selfMergeData = smData.self_merges || [];
+            try {
+                const smData = await smRes.json();
+                selfMergeData = smData.self_merges || [];
+            } catch (err) {
+                console.warn("Failed to parse self-merges data:", err);
+                selfMergeData = [];
+            }
         } else {
             selfMergeData = [];
         }
         
         if (sankeyRes && sankeyRes.ok) {
-            sankeyData = await sankeyRes.json();
+            try {
+                sankeyData = await sankeyRes.json();
+            } catch (err) {
+                console.warn("Failed to parse sankey data:", err);
+                sankeyData = null;
+            }
         }
         
         maintainerData = data.maintainers.filter(m => m.active_years && m.active_years.length > 0);
